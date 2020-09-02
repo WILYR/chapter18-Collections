@@ -8,16 +8,27 @@ public class task2 {
             System.out.print(array[i] + " ");
         }
         int count = 1;
+        boolean tf = false;
         int used = 0;
         for (int i = 0; i < array.length; i++) {
-            for (int j = 1; j < array.length; j++) {
-                if (array[i] == array[j]) {
-                    used = array[j];
-                    count++;
+            count = 1;
+            if (array[i] != used) {
+                for (int j = i + 1; j < array.length; j++) {
+                    if (array[i] == array[j]) {
+                        used = array[j];
+                        tf = true;
+                        count++;
+                    }
+                }
+                if (count == 1) {
+                    continue;
+                } else {
+                    System.out.println("\nЧисло " + used + " повторяется " + count + " раза");
                 }
             }
         }
-        System.out.println("\n" + count);
-        //System.out.println("Число " + array[i] + " повторяется " + count + "раз");
+        if (!tf) {
+            System.out.println("\nПовторений нет");
+        }
     }
 }

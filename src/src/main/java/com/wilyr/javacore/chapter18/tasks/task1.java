@@ -1,13 +1,11 @@
 package src.main.java.com.wilyr.javacore.chapter18.tasks;
 
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class task1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        Set<Integer> adq = new HashSet<Integer>();
+        Set<Integer> adq = new LinkedHashSet<Integer>();
         System.out.print("Set size: ");
         int inputsize = in.nextInt();
         while (adq.size() != inputsize) {
