@@ -11,25 +11,20 @@ public class task1 {
         adq.add(5);
         adq.add(7);
         adq.add(8);
-        int number = 9;
+        int number = 13;
         Iterator<Integer> itr = adq.iterator();
-        Iterator<Integer> itr2 = adq.iterator();
-        Integer element, element2, tmp = null, tmp2 = null, count = 0;
-        exitLabel: while (itr.hasNext()) {
-            element = itr.next();
-            while (itr2.hasNext()) {
-                element2 = itr2.next();
-                if (!element.equals(element2) && element + element2 == number) {
-                    tmp = element;
-                    tmp2 = element2;
-                    break exitLabel;
-                }
+        Integer tmp = null, tmp2 = null;
+        while (itr.hasNext()) {
+            Integer element = itr.next();
+            if (adq.contains(number - element)) {
+                tmp = element;
+                tmp2 = number - element;
+                break;
             }
-            itr2 = adq.iterator();
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
         arrayList.addAll(adq);
-        arrayList.indexOf(tmp);
-        arrayList.indexOf(tmp2);
+        System.out.println(arrayList.indexOf(tmp));
+        System.out.println(arrayList.indexOf(tmp2));
     }
 }
