@@ -1,34 +1,22 @@
 package src.main.java.com.wilyr.javacore.chapter18.tasks;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class task2 {
     public static void main(String[] args) {
-        Integer array[] = new Integer[5];
+        Integer[] array = new Integer[]{1, 2, 4, 4, 5};
+        Set<Integer> set = new HashSet<>();
         for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 10);
-            System.out.print(array[i] + " ");
+            set.add(array[i]);
         }
-        int count = 1;
-        boolean tf = false;
-        int used = 0;
-        for (int i = 0; i < array.length; i++) {
-            count = 1;
-            if (array[i] != used) {
-                for (int j = i + 1; j < array.length; j++) {
-                    if (array[i] == array[j]) {
-                        used = array[j];
-                        tf = true;
-                        count++;
-                    }
-                }
-                if (count == 1) {
-                    continue;
-                } else {
-                    System.out.println("\nЧисло " + used + " повторяется " + count + " раза");
-                }
-            }
+        isTrue(array.length, set.size());
+    }
+
+    private static boolean isTrue(int size, int size2) {
+        if (size == size2) {
+            return false;
         }
-        if (!tf) {
-            System.out.println("\nПовторений нет");
-        }
+        return true;
     }
 }

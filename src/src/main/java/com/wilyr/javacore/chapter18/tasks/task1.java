@@ -5,26 +5,30 @@ import java.util.*;
 public class task1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        Set<Integer> adq = new LinkedHashSet<Integer>();
-        System.out.print("Set size: ");
-        int inputsize = in.nextInt();
-        while (adq.size() != inputsize) {
-            adq.add((int) (Math.random() * 20));
-        }
-        for (int i : adq) {
-            System.out.print(i + " ");
-        }
-        System.out.print("\nSet number: ");
-        int number = in.nextInt();
-        Integer array[] = new Integer[adq.size()];
-        array = adq.toArray(array);
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 1; j < array.length; j++) {
-                if (array[i] + array[j] == number) {
-                    System.out.println("Result: " + i + " " + j);
-                    return;
+        Set<Integer> adq = new TreeSet<>();
+        adq.add(1);
+        adq.add(2);
+        adq.add(5);
+        adq.add(7);
+        adq.add(8);
+        int number = 9;
+        Iterator<Integer> itr = adq.iterator();
+        Iterator<Integer> itr2 = adq.iterator();
+        Integer element, element2, tmp = null, tmp2 = null, count = 0;
+        while (itr.hasNext()) {
+            element = itr.next();
+            while (itr2.hasNext()) {
+                element2 = itr2.next();
+                if (!element.equals(element2) && element + element2 == number) {
+                    tmp = element;
+                    tmp2 = element2;
                 }
             }
+            itr2 = adq.iterator();
         }
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.addAll(adq);
+        arrayList.indexOf(tmp);
+        arrayList.indexOf(tmp2);
     }
 }
