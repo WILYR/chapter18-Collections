@@ -9,14 +9,12 @@ public class task2 {
     }
 
     public static boolean containsDuplicate(Integer[] array) {
-        Set<Integer> set = new HashSet<Integer>();
-        boolean result = true;
+        Set<Integer> set = new HashSet<>();
         for (int i = 0; i < array.length; i++) {
-            result = !set.add(array[i]);
-            if (result) {
-                break;
+            if (!set.add(array[i])) {
+                return false;
             }
         }
-        return result;
+        return true;
     }
 }
